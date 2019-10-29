@@ -13,56 +13,61 @@ $eight = ord('8');
 $nine = ord('9');
 
 $bigDigit = [
-	'0'=>[[$space, $zero,  $zero,  $space,],
-		  [$zero,  $space, $space, $zero,],
-		  [$zero,  $space, $space, $zero,],
-		  [$zero,  $space, $space, $zero,],
-		  [$space, $zero,  $zero,  $space,],],
-	'1'=>[[$space,$space, $one, $space,],
-		  [$space,$one,   $one, $space,],
-		  [$space,$space, $one, $space,],
-		  [$space,$space, $one, $space,],
-		  [$space,$one,   $one, $one,],],
-	'2'=>[[$space,$two,   $two,   $space,],
-		  [$two,  $space, $space, $two,],
-		  [$space,$space, $two,   $space],
-		  [$two,  $space, $space, $space,],
-		  [$two,  $two,   $two,   $two,],],
-	'3'=>[[$space,$three, $three, $space,],
-		  [$three,$space, $space, $three,],
-		  [$space,$space, $three, $space,],
-		  [$three,$space, $space, $three,],
-		  [$space,$three, $three, $space,],],
-	'4'=>[[$space,$space, $space, $space,],
-		  [$space,$space, $space, $space,],
-		  [$space,$space, $space, $space,],
-		  [$space,$space, $space, $space,],
-		  [$space,$space, $space, $space,],],
-	'5'=>[[$five, $five,  $five,  $five,],
-		  [$five, $space, $space, $space,],
-		  [$five, $five,  $five,  $space,],
-		  [$space,$space, $space, $five,],
-		  [$five, $five,  $five,  $space,],],
-	'6'=>[[$space,$six,   $six,   $space,],
-		  [$six,  $space, $space, $space,],
-		  [$six,  $six,   $six,   $space,],
-		  [$six,  $space, $space, $six,],
-		  [$space,$six,   $six,   $space,],],
-	'7'=>[[$seven,$seven, $seven, $seven,],
-		  [$space,$space, $space, $seven,],
-		  [$space,$space, $seven, $space,],
-		  [$space,$seven, $space, $space,],
-		  [$seven,$space, $space, $space,],],
-	'8'=>[[$space,$eight, $eight, $space,],
-		  [$eight,$space, $space, $eight,],
-		  [$space,$eight, $eight, $space,],
-		  [$eight,$space, $space, $eight,],
-		  [$space,$eight, $eight, $space,],],
-	'9'=>[[$space,$nine,  $nine,  $space,],
-		  [$nine, $space, $space, $nine,],
-		  [$space,$nine,  $nine,  $nine,],
-		  [$space,$space, $space, $nine,],
-		  [$space,$nine,  $nine,  $space,],],
+	'0'=>[[' ','0','0',' ',],
+		  ['0',' ',' ','0',],
+		  ['0',' ',' ','0',],
+		  ['0',' ',' ','0',],
+		  [' ','0','0',' '],],
+	'1'=>[[' ',' ','1',' ',],
+		  [' ','1','1',' ',],
+		  [' ',' ','1',' ',],
+		  [' ',' ','1',' ',],
+		  [' ','1','1','1'],],
+	'2'=>[[' ','2','2',' ',],
+		  ['2',' ',' ','2',],
+		  [' ',' ','2',' ',],
+		  ['2',' ',' ',' ',],
+		  ['2','2','2','2'],],
+	'3'=>[[' ','3','3',' ',],
+		  ['3',' ',' ','3',],
+		  [' ',' ','3',' ',],
+		  ['3',' ',' ','3',],
+		  [' ','3','3',' '],],
+	'4'=>[['4',' ',' ','4',],
+		  ['4',' ',' ','4',],
+		  ['4','4','4','4',],
+		  [' ',' ',' ','4',],
+		  [' ',' ',' ','4'],],
+	'5'=>[['5','5','5','5',],
+		  ['5',' ',' ',' ',],
+		  ['5','5','5',' ',],
+		  [' ',' ',' ','5',],
+		  ['5','5','5',' '],],
+	'6'=>[[' ','6','6',' ',],
+		  ['6',' ',' ',' ',],
+		  ['6','6','6',' ',],
+		  ['6',' ',' ','6',],
+		  [' ','6','6',' '],],
+	'7'=>[['7','7','7','7',],
+		  [' ',' ',' ','7',],
+		  [' ',' ','7',' ',],
+		  [' ','7',' ',' ',],
+		  ['7',' ',' ',' '],],
+	'8'=>[[' ','8','8',' ',],
+		  ['8',' ',' ','8',],
+		  [' ','8','8',' ',],
+		  ['8',' ',' ','8',],
+		  [' ','8','8',' '],],
+	'9'=>[[' ','9','9',' ',],
+		  ['9',' ',' ','9',],
+		  [' ','9','9','9',],
+		  [' ',' ',' ','9',],
+		  [' ','9','9',' '],],
+	'-'=>[[' ',' ',' ',' ',],
+		  [' ',' ',' ',' ',],
+		  ['-','-','-','-',],
+		  [' ',' ',' ',' ',],
+		  [' ',' ',' ',' '],],
 ];
 
 
@@ -101,13 +106,13 @@ $main = function()use($bigDigit){
 					// $result[$key] .= $bigDigit[$digKey][$key];
 					// copy(result[index][(i * countDigit *4) + (cmdIndex *4):], key[index])
 					// var_dump($bigDigit);
-					foreach ($bigDigit[$digKey][$key] as $iD => $valueInt) {
+					foreach ($bigDigit[$digKey][$key] as $iD => $value) {
 					// foreach ($bigDigit[$digKey][$key][0] as $iD => $valueInt) {
 						// echo "$valueInt\n";
 						// $i * $countDigit *4 + $index *4 + $iD +1
 						$m = ($i * $countDigit * 4) + $index *4 + $iD;
 						// echo "$m \n";
-						$resultInt[$key][$m] = $valueInt;
+						$resultInt[$key][$m] = $value;
 						
 					}
 				}
@@ -140,16 +145,22 @@ $main = function()use($bigDigit){
 	echo "j $repetition \n";
 	echo count($resultInt[0]) . " ?\n";
 	printf(" %.4F sec.\n", microtime(true) - $start);
-	$result[0] = pack('C*', ...$resultInt[0]);
+	/*$result[0] = pack('C*', ...$resultInt[0]);
 	$result[1] = pack('C*', ...$resultInt[1]);
 	$result[2] = pack('C*', ...$resultInt[2]);
 	$result[3] = pack('C*', ...$resultInt[3]);
-	$result[4] = pack('C*', ...$resultInt[4]);
-	// echo $result[0] ."\n";
-	// echo $result[1] ."\n";
-	// echo $result[2] ."\n";
-	// echo $result[3] ."\n";
-	// echo $result[4] ."\n";
+	$result[4] = pack('C*', ...$resultInt[4]);*/
+	implode('', $resultInt[0]->toArray()) ."\n";
+	implode('', $resultInt[1]->toArray()) ."\n";
+	implode('', $resultInt[2]->toArray()) ."\n";
+	implode('', $resultInt[3]->toArray()) ."\n";
+	implode('', $resultInt[4]->toArray()) ."\n";
+
+	// echo implode('', $resultInt[0]->toArray()) ."\n";
+	// echo implode('', $resultInt[1]->toArray()) ."\n";
+	// echo implode('', $resultInt[2]->toArray()) ."\n";
+	// echo implode('', $resultInt[3]->toArray()) ."\n";
+	// echo implode('', $resultInt[4]->toArray()) ."\n";
 
 	// var_dump($resultAll);
 	printf(' %.4F sec.', microtime(true) - $start);
