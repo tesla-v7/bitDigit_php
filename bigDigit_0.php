@@ -59,17 +59,11 @@ const bigDigit = [
 ];
 
 function main(){
-	// var_dump($argv);
-	// if(count($argv)==1){
-	// 	return;
-	// }
 	$start = microtime(true);
-	// $strDigit = '0-1-2-3-4-5-6-7-8-9';
-	$repetition = 10000;
+	$repetition = 1;
 	$strDigit = '0123';
 	$result = ['','','','',''];
 	$resultAll = [[],[],[],[],[]];
-
 
 	$step = microtime(true);
 	for($i =0; $i < $repetition; $i++){
@@ -105,11 +99,12 @@ function main(){
 
 	}
 	// var_dump($result);
-	// echo implode("\n", $result) ."\n";
+	echo implode("\n", $result) ."\n";
 	echo strlen($result[0]) . " ?\n";
 
-	// var_dump($resultAll);
 	printf(' %.4F sec.', microtime(true) - $start);
 	echo "\n";
 }
+
+
 main();
